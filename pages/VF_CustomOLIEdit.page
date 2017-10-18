@@ -1,0 +1,64 @@
+<apex:page id="customMultiLine" standardController="Opportunity" extensions="CLS_CustomProductAddition" showHeader="true" sidebar="true">
+
+    <style>
+        .dateFormat{
+            display: none;
+        }
+        .pbTitle{
+            display: none;
+        }
+    </style>
+
+    <apex:sectionHeader title="Add Products for" subtitle="{!Opportunity.Name}" description="Add products to this opportunity from <b>{!pbName}</b> price book"/>
+<!--
+    <apex:pageMessages id="msgs"/>
+
+    <apex:form >
+        <apex:pageBlock >
+
+            <apex:pageBlockButtons style="text-align: center;">
+                <apex:actionStatus id="save_status">
+                    <apex:facet name="stop">
+                        <apex:outPutPanel >
+                            <apex:commandButton value="Save" action="{!saveOLIs}" status="save_status" rerender="msgs"/>
+                            <apex:commandButton value="Cancel" action="{!gotoOpp}" immediate="true" rerender="msgs"/>
+                        </apex:outPutPanel>
+                    </apex:facet>
+                    <apex:facet name="start">
+                        <apex:outPutText value="processing...."/>
+                    </apex:facet>
+                </apex:actionStatus>
+            </apex:pageBlockButtons>
+
+
+            <apex:pageBlockTable value="{!OLIs}" var="oli">
+
+                <apex:column headerValue="Product" value="{!prodNames[oli.PriceBookEntryID]}"/>
+
+                <apex:column headerValue="Quantity">
+                    <apex:inputField value="{!oli.Quantity}"/>
+                </apex:column>
+
+                <apex:column headerValue="Currency" value="{!opp_currency}"/>
+
+                <apex:column headerValue="Sales Price">
+                    <apex:inputField value="{!oli.UnitPrice}"/>
+                </apex:column>
+                <apex:column headerValue="Revenue Start Date">
+                    <apex:inputField value="{!oli.Revenue_Start_Date__c}"/>
+                </apex:column>
+                <apex:column headerValue="Revenue Months">
+                    <apex:inputField value="{!oli.Revenue_Months__c}"/>
+                </apex:column>
+
+                <apex:column headerValue="Date [{!TODAY()}]">
+                    <apex:inputField value="{!oli.ServiceDate}"/>
+                </apex:column>
+
+
+            </apex:pageBlockTable>
+
+        </apex:pageBlock>
+    </apex:form>
+-->
+</apex:page>

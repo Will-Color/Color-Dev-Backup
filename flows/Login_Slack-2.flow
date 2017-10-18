@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Write_To_Slack</name>
+        <label>Write To Slack</label>
+        <locationX>994</locationX>
+        <locationY>230</locationY>
+        <actionName>publishToSlack</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>random</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <stringValue>Someone Just Logged in to the Color Dev Org!</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <constants>
+        <description>1</description>
+        <name>test</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>1</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Execute</name>
+        <label>Execute</label>
+        <locationX>992</locationX>
+        <locationY>100</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>X1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>test</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>1</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>Write_To_Slack</targetReference>
+            </connector>
+            <label>1</label>
+        </rules>
+    </decisions>
+    <interviewLabel>Write To Slack</interviewLabel>
+    <label>Login Slack</label>
+    <processType>Flow</processType>
+    <startElementReference>Execute</startElementReference>
+</Flow>

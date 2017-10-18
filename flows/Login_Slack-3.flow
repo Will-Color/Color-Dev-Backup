@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Flow xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionCalls>
+        <name>Write_To_Slack</name>
+        <label>Write To Slack</label>
+        <locationX>809</locationX>
+        <locationY>322</locationY>
+        <actionName>publishToSlack</actionName>
+        <actionType>apex</actionType>
+        <inputParameters>
+            <name>channel</name>
+            <value>
+                <stringValue>random</stringValue>
+            </value>
+        </inputParameters>
+        <inputParameters>
+            <name>slackMessage</name>
+            <value>
+                <stringValue>{!Name.FirstName} Just Logged Into Saleforce</stringValue>
+            </value>
+        </inputParameters>
+    </actionCalls>
+    <constants>
+        <description>1</description>
+        <name>test</name>
+        <dataType>String</dataType>
+        <value>
+            <stringValue>1</stringValue>
+        </value>
+    </constants>
+    <decisions>
+        <name>Execute</name>
+        <label>Execute</label>
+        <locationX>945</locationX>
+        <locationY>45</locationY>
+        <defaultConnectorLabel>[Default Outcome]</defaultConnectorLabel>
+        <rules>
+            <name>X1</name>
+            <conditionLogic>and</conditionLogic>
+            <conditions>
+                <leftValueReference>test</leftValueReference>
+                <operator>EqualTo</operator>
+                <rightValue>
+                    <stringValue>1</stringValue>
+                </rightValue>
+            </conditions>
+            <connector>
+                <targetReference>User_Info</targetReference>
+            </connector>
+            <label>1</label>
+        </rules>
+    </decisions>
+    <formulas>
+        <name>Get_user_ID</name>
+        <dataType>String</dataType>
+        <expression>$user.ID</expression>
+    </formulas>
+    <interviewLabel>Write To Slack</interviewLabel>
+    <label>Login Slack</label>
+    <processType>Flow</processType>
+    <recordLookups>
+        <name>User_Info</name>
+        <label>User Info</label>
+        <locationX>808</locationX>
+        <locationY>173</locationY>
+        <assignNullValuesIfNoRecordsFound>false</assignNullValuesIfNoRecordsFound>
+        <connector>
+            <targetReference>Write_To_Slack</targetReference>
+        </connector>
+        <filters>
+            <field>Id</field>
+            <operator>EqualTo</operator>
+            <value>
+                <elementReference>Get_user_ID</elementReference>
+            </value>
+        </filters>
+        <object>User</object>
+        <outputReference>Name</outputReference>
+        <queriedFields>FirstName</queriedFields>
+        <queriedFields>LastName</queriedFields>
+        <queriedFields>ProfileId</queriedFields>
+    </recordLookups>
+    <startElementReference>Execute</startElementReference>
+    <variables>
+        <description>Name</description>
+        <name>Name</name>
+        <dataType>SObject</dataType>
+        <isCollection>false</isCollection>
+        <isInput>true</isInput>
+        <isOutput>true</isOutput>
+        <objectType>User</objectType>
+    </variables>
+</Flow>

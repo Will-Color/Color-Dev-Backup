@@ -1,0 +1,103 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global">
+    
+    <!-- Test Component for Implementing LDS for LEX Contact Detail page -->
+    
+    <aura:attribute name="contact" type="Contact"/> 
+    <aura:attribute name="contactRecord" type="Contact"/> 
+    <aura:attribute name="recordSaveMsg" type="boolean" default="true" />
+    
+    <force:recordData aura:id="contactRec"
+                      layoutType="FULL"
+                      recordId="{!v.recordId}"
+                      targetRecord="{!v.contact}"
+                      targetFields="{!v.contactRecord}"
+                      mode="EDIT"/>
+    
+    <div class="slds-box">
+        
+        <aura:if isTrue="{!not(v.recordSaveMsg)}">           
+            <div class="demo-only" style="height: 4rem;">
+                <div class="slds-is-relative">
+                    <div class="slds-notify slds-notify_toast slds-theme_success">
+                        <span class="slds-assistive-text">Success</span>
+                        <div class="slds-notify__content">
+                            <h2 class="slds-text-heading_small ">Contact {!v.contactRecord.FirstName}&nbsp;{!v.contactRecord.LastName} was updated.</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aura:if>
+        
+        <div class="slds-text-heading_medium">
+            Update Contact Details
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label"  >FirstName: </label>
+            <div class="slds-form-element__control">
+                <ui:inputText class="slds-input" 
+                              value="{!v.contactRecord.FirstName}" />
+            </div>
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label"  >LastName: </label>
+            <div class="slds-form-element__control">
+                <ui:inputText class="slds-input" 
+                              value="{!v.contactRecord.LastName}" 
+                              required="true" />
+            </div>
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label"  >Phone: </label>
+            <div class="slds-form-element__control">
+                <ui:inputText class="slds-input" 
+                              value="{!v.contactRecord.Phone}" />
+            </div>
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label"  >MailingCity: </label>
+            <div class="slds-form-element__control">
+                <ui:inputText class="slds-input" 
+                              value="{!v.contactRecord.MailingCity}" />
+            </div>
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label"  >MailingState: </label>
+            <div class="slds-form-element__control">
+                <ui:inputText class="slds-input" 
+                              value="{!v.contactRecord.MailingState}" />
+            </div>
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label"  >Title: </label>
+            <div class="slds-form-element__control">
+                <ui:inputText class="slds-input" 
+                              value="{!v.contactRecord.Title}" />
+            </div>
+        </div>
+        
+        <div class="slds-form-element">
+            <label class="slds-form-element__label"  >Email: </label>
+            <div class="slds-form-element__control">
+                <ui:inputText class="slds-input" 
+                              value="{!v.contactRecord.Email}" />
+            </div>
+        </div>
+        
+        <div class="slds-form-element">
+            <br/>
+            <ui:button aura:id="saveContact" 
+                       buttonTitle="Save Contact" 
+                       class="button slds-button_brand" 
+                       label="Update" 
+                       press="{!c.saveCont}"/>
+        </div>
+        
+    </div>
+    
+</aura:component>
