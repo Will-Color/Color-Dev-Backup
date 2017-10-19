@@ -9,44 +9,77 @@
         }
     </style>
     
-    <apex:sectionHeader title="Add Products for" subtitle="{!Opportunity.Name}" description="Add products to this opportunity from <b>{!pbName} </b> price book"/>
-    <apex:pageMessages id="msgs"/>
-    <apex:form >
-        <apex:pageBlock >
-            <apex:pageBlockButtons style="text-align: center;">
-                <apex:actionStatus id="save_status">
-                    <apex:facet name="stop">
-                        <apex:outPutPanel >
-                            <apex:commandButton value="Save" action="{!saveOLIs}" status="save_status" rerender="msgs"/>
-                            <apex:commandButton value="Cancel" action="{!gotoOpp}" immediate="true" rerender="msgs"/>
-                        </apex:outPutPanel>
-                    </apex:facet>
-                    <apex:facet name="start">
-                        <apex:outPutText value="Please wait..."/>
-                    </apex:facet>
-                </apex:actionStatus>
-            </apex:pageBlockButtons>
-            
-            <apex:pageBlockTable value="{!OLIs}" var="oli">
+    <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
+        <apex:sectionHeader title="Add Products for" subtitle="{!Opportunity.Name}" description="Add products to this opportunity 
+                                                                                                 from <b>{!pbName}</b> 
+                                                                                                 price book"/>
+        <apex:pageMessages id="msgs"/>
+        <apex:form >
+            <apex:pageBlock >
+                <apex:pageBlockButtons style="text-align: center;">
+                    <apex:actionStatus id="save_status">
+                        <apex:facet name="stop">
+                            <apex:outPutPanel >
+                                <apex:commandButton value="Save" action="{!saveOLIs}" status="save_status" rerender="msgs"/>
+                                <apex:commandButton value="Cancel" action="{!gotoOpp}" immediate="true" rerender="msgs"/>
+                            </apex:outPutPanel>
+                        </apex:facet>
+                        <apex:facet name="start">
+                            <apex:outPutText value="Please wait..."/>
+                        </apex:facet>
+                    </apex:actionStatus>
+                </apex:pageBlockButtons>
                 
-                <apex:column headerValue="Product" value="{!prodNames[oli.PriceBookEntryID]}"/>
-                
-                <apex:column headerValue="Quantity">
-                    <apex:inputField value="{!oli.Quantity}"/>
-                </apex:column>
-                <apex:column headerValue="Sales Price">
-                    <apex:inputField value="{!oli.UnitPrice}"/>
-                </apex:column>
-                <apex:column headerValue="{!oli.Revenue_Start_Date__c}">
-                    <apex:inputField value="{!oli.Revenue_Start_Date__c}"/>
-                </apex:column>
-                <apex:column headerValue="Revenue Months">
-                    <apex:inputField value="{!oli.Revenue_Months__c}"/>
-                </apex:column>
-                <!--apex:column headerValue="Date [{!TODAY()}]">
-                    <apex:inputField value="{!oli.ServiceDate}"/>
-                </apex:column-->
-            </apex:pageBlockTable>
-        </apex:pageBlock>
-    </apex:form>
+                <apex:pageBlockTable value="{!OLIs}" var="oli">
+                    
+                    <apex:column headerValue="Product" value="{!prodNames[oli.PriceBookEntryID]}"/>
+                    
+                    <apex:column headerValue="Quantity">
+                        <apex:inputField value="{!oli.Quantity}"/>
+                    </apex:column>
+                    <apex:column headerValue="Sales Price">
+                        <apex:inputField value="{!oli.UnitPrice}"/>
+                    </apex:column>
+                    <apex:column headerValue="{!oli.Revenue_Start_Date__c}">
+                        <apex:inputField value="{!oli.Revenue_Start_Date__c}"/>
+                    </apex:column>
+                    <apex:column headerValue="Revenue Months">
+                        <apex:inputField value="{!oli.Revenue_Months__c}"/>
+                    </apex:column>
+                    <!--apex:column headerValue="Date [{!TODAY()}]">
+                        <apex:inputField value="{!oli.ServiceDate}"/>
+                    </apex:column-->
+                </apex:pageBlockTable>
+            </apex:pageBlock>
+        </apex:form>
+    </apex:outputPanel>
+    
+     <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">
+    <div class="demo-only" style="height: 640px;">
+        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-slide-down-cancel slds-modal_large">
+            <div class="slds-modal__container">
+                <header class="slds-modal__header">
+                    <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                        <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                            <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close" />
+                        </svg>
+                        <span class="slds-assistive-text">Close</span>
+                    </button>
+                    <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Modal Header</h2>
+                </header>
+                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                    <p>Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi. Mollit officia cillum Lorem ullamco minim nostrud elit officia tempor esse quis. Cillum sunt ad dolore
+                        quis aute consequat ipsum magna exercitation reprehenderit magna. Tempor cupidatat consequat elit dolor adipisicing.</p>
+                    <p>Dolor eiusmod sunt ex incididunt cillum quis nostrud velit duis sit officia. Lorem aliqua enim laboris do dolor eiusmod officia. Mollit incididunt nisi consectetur esse laborum eiusmod pariatur proident. Eiusmod et adipisicing culpa deserunt nostrud
+                        ad veniam nulla aute est. Labore esse esse cupidatat amet velit id elit consequat minim ullamco mollit enim excepteur ea.</p>
+                </div>
+                <footer class="slds-modal__footer">
+                    <button class="slds-button slds-button_neutral">Cancel</button>
+                    <button class="slds-button slds-button_brand">Save</button>
+                </footer>
+            </div>
+        </section>
+        <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+    </apex:outputPanel>
 </apex:page>

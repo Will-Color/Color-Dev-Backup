@@ -5,7 +5,7 @@ public class CLS_CustomProductAddition {
     public CLS_CustomProductAddition(ApexPages.StandardController controller){
         
         opp = [Select ID, PriceBook2.Name, 
-               (Select PriceBookEntry.Product2ID, ProductCode 
+               (Select ID, PriceBookEntry.Product2ID, ProductCode 
                 From OpportunityLineItems
                )
                From Opportunity
