@@ -1,22 +1,23 @@
 <apex:page id="pickProducts" standardController="Opportunity" extensions="CLS_CustomProductAddition" action="{!priceBookCheck}">
     <apex:sectionHeader title="Add Products for" subtitle="{!Opportunity.Name}"
-                        description="Enter your keyword and filter criteria, then click Search to begin your search. Click More filters to use more than one filter. Search results include all records that match both your keyword and filter entries."/>
+                        description="Enter your keyword and filter criteria, then click Search to begin your search. 
+                                     Click More filters to use more than one filter. Search results include all records that match 
+                                     both your keyword and filter entries."/>
     
     <apex:pageMessages id="msgs"/>
-    
     <apex:form >
         <apex:pageBlock title="Select Products">
             <apex:pageBlockButtons >
                 <apex:commandButton value="Select and Continue" action="{!gotoCustomMultiLine}"/>
             </apex:pageBlockButtons>
-            <apex:pageBlockTable value="{!prods}" var="p">
+            <apex:pageBlockTable value="{!prods}" var="prod">
                 <apex:column >
-                    <apex:inputCheckbox value="{!p.isSelected}"/>
+                    <apex:inputCheckbox value="{!prod.isSelected}"/>
                 </apex:column>
-                <apex:column headerValue="Product Name" value="{!p.pbe.Product2.Name}"/>
-                <apex:column headerValue="Price" value="{!p.pbe.UnitPrice}"/>
-                <apex:column headerValue="Product Code" value="{!p.pbe.ProductCode}"/>
-                <apex:column headerValue="Product Description" value="{!p.pbe.Product2.Description}"/>
+                <apex:column headerValue="Product Name" value="{!prod.pbe.Product2.Name}"/>
+                <apex:column headerValue="Price" value="{!prod.pbe.UnitPrice}"/>
+                <apex:column headerValue="Product Code" value="{!prod.pbe.ProductCode}"/>
+                <apex:column headerValue="Product Description" value="{!prod.pbe.Product2.Description}"/>
             </apex:pageBlockTable>
         </apex:pageBlock>
     </apex:form>
