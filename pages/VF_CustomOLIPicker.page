@@ -27,7 +27,7 @@
     <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">    
         <apex:slds />
         <div class="slds">    
-            <div class="demo-only" style="height: 640px;">
+            <div>
                 <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-slide-down-cancel slds-modal_large">
                     <div class="slds-modal__container">
                         <header class="slds-modal__header">
@@ -45,20 +45,17 @@
                                     <thead>
                                         <tr class="slds-text-title--caps">
                                             <th scope="col">
+                                                <div class="slds-truncate" title="Select">Select</div>
+                                            </th>
+                                            <th scope="col">
                                                 <div class="slds-truncate" title="Product Name">Product Name</div>
                                             </th>
-                                        </tr>
-                                        <tr class="slds-text-title--caps">
                                             <th scope="col">
                                                 <div class="slds-truncate" title="Unit Price">Unit Price</div>
                                             </th>
-                                        </tr>
-                                        <tr class="slds-text-title--caps">
                                             <th scope="col">
                                                 <div class="slds-truncate" title="Product Code">Product Code</div>
                                             </th>
-                                        </tr>
-                                        <tr class="slds-text-title--caps">
                                             <th scope="col">
                                                 <div class="slds-truncate" title="Description">Description</div>
                                             </th>
@@ -67,29 +64,41 @@
                                     <tbody>
                                         <apex:repeat value="{!prods}" var="prod">
                                             <tr>
+                                                <td scope="row" data-label="Select">
+                                                    <div class="slds-form-element">
+                                                            <div class="slds-form-element__control">
+                                                                <span class="slds-checkbox">
+                                                                    <input type="checkbox" name="options" id="{!prod.pbe.ProductCode}" value="{!prod.isSelected}" />
+                                                                    <label class="slds-checkbox__label" for="{!prod.pbe.ProductCode}">
+                                                                        <span class="slds-checkbox_faux"></span>
+                                                                    </label>
+                                                                </span>
+                                                            </div>
+                                                        </div>
+                                                </td>
                                                 <th scope="row" data-label="Product Name">
                                                     <div class="slds-truncate" title="Product Name">
                                                         <apex:outputLink value="/{! prod.pbe.Product2.Id}">{! prod.pbe.Product2.name }</apex:outputLink>
                                                     </div>
                                                 </th>
-                                                <td data-label="Revenue Start Date">
+                                                <td data-label="Unit Price">
                                                     <div class="slds-form-element">
                                                         <div class="slds-form-element__control">
                                                             <apex:inputfield value="{!prod.pbe.UnitPrice}" styleClass="slds-input" />
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td data-label="Revenue Start Date">
+                                                <td data-label="Product Code">
                                                     <div class="slds-form-element">
                                                         <div class="slds-form-element__control">
-                                                            <apex:inputfield value="{!prod.pbe.UnitPrice}" styleClass="slds-input" />
+                                                            <apex:inputfield value="{!prod.pbe.ProductCode}" styleClass="slds-input" />
                                                         </div>
                                                     </div>
                                                 </td>
-                                                <td data-label="Revenue Start Date">
+                                                <td data-label="Product Descriptione">
                                                     <div class="slds-form-element">
                                                         <div class="slds-form-element__control">
-                                                            <apex:inputfield value="{!prod.pbe.UnitPrice}" styleClass="slds-input" />
+                                                            <apex:inputfield value="{!prod.pbe.Product2.Description}" styleClass="slds-input" />
                                                         </div>
                                                     </div>
                                                 </td>
