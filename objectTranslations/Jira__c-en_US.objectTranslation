@@ -22,4 +22,10 @@
     </fields><fields>
         <label><!-- Jira ID --></label>
         <name>Jira_ID__c</name>
-    </fields></CustomObjectTranslation>
+    </fields><caseValues>
+        <plural>false</plural>
+        <value>Support Ticket</value>
+    </caseValues><caseValues>
+        <plural>true</plural>
+        <value>Support Tickets</value>
+    </caseValues><startsWith>Consonant</startsWith></CustomObjectTranslation>
