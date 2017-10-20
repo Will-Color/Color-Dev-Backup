@@ -14,4 +14,5 @@
     <tab>standard-Case</tab>
     <tab>standard-Forecasting3</tab>
     <tab>Revenue_Schedule__c</tab>
+    <tab>Jira__c</tab>
 </CustomApplication>

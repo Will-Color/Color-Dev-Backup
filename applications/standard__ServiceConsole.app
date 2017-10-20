@@ -173,7 +173,11 @@
     <tab>standard-Opportunity</tab>
     <tab>standard-Lead</tab>
     <tab>Revenue_Schedule__c</tab>
+    <tab>Jira__c</tab>
     <workspaceMappings>
+        <mapping>
+            <tab>Jira__c</tab>
+        </mapping>
         <mapping>
             <tab>Revenue_Schedule__c</tab>
         </mapping>

@@ -5,4 +5,5 @@
     <tab>standard-ContentSearch</tab>
     <tab>standard-ContentSubscriptions</tab>
     <tab>Revenue_Schedule__c</tab>
+    <tab>Jira__c</tab>
 </CustomApplication>

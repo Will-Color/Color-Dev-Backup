@@ -5,4 +5,5 @@
     <tab>standard-Opportunity</tab>
     <tab>standard-Product2</tab>
     <tab>Revenue_Schedule__c</tab>
+    <tab>Jira__c</tab>
 </CustomApplication>

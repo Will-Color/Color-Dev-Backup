@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Profile xmlns="http://soap.sforce.com/2006/04/metadata"><custom>false</custom><userLicense>Partner</userLicense><applicationVisibilities>
+<?xml version="1.0" encoding="utf-8"?><Profile xmlns="http://soap.sforce.com/2006/04/metadata"><custom>false</custom><userLicense>Partner</userLicense><applicationVisibilities>
         <application>Color_Product_Scheduler</application>
         <default>false</default>
         <visible>false</visible>
@@ -1052,4 +1052,7 @@
     </tabVisibilities><tabVisibilities>
         <tab>standard-UserProvisioningRequest</tab>
         <visibility>Hidden</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>Jira__c</tab>
+        <visibility>DefaultOn</visibility>
     </tabVisibilities></Profile>

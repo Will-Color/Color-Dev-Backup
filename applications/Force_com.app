@@ -4,4 +4,5 @@
     <description>Start Here</description>
     <label>Force.com</label>
     <tab>Revenue_Schedule__c</tab>
+    <tab>Jira__c</tab>
 </CustomApplication>

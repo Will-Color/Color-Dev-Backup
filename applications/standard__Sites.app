@@ -3,4 +3,5 @@
     <defaultLandingTab>standard-home</defaultLandingTab>
     <tab>standard-Sites</tab>
     <tab>Revenue_Schedule__c</tab>
+    <tab>Jira__c</tab>
 </CustomApplication>

@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Profile xmlns="http://soap.sforce.com/2006/04/metadata"><custom>false</custom><userLicense>Salesforce</userLicense><classAccesses>
+<?xml version="1.0" encoding="utf-8"?><Profile xmlns="http://soap.sforce.com/2006/04/metadata"><custom>false</custom><userLicense>Salesforce</userLicense><classAccesses>
         <apexClass>CLS_CustomProductAddition</apexClass>
         <enabled>true</enabled>
     </classAccesses><classAccesses>
@@ -990,6 +990,10 @@
         <editable>true</editable>
         <field>Task.WhoId</field>
         <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>Jira__c.Jira_ID__c</field>
+        <readable>true</readable>
     </fieldPermissions><layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments><layoutAssignments>
@@ -1159,5 +1163,8 @@
         <visibility>DefaultOn</visibility>
     </tabVisibilities><tabVisibilities>
         <tab>standard-UserProvisioningRequest</tab>
+        <visibility>DefaultOn</visibility>
+    </tabVisibilities><tabVisibilities>
+        <tab>Jira__c</tab>
         <visibility>DefaultOn</visibility>
     </tabVisibilities></Profile>

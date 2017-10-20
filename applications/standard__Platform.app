@@ -6,4 +6,5 @@
     <tab>standard-report</tab>
     <tab>standard-Dashboard</tab>
     <tab>Revenue_Schedule__c</tab>
+    <tab>Jira__c</tab>
 </CustomApplication>
