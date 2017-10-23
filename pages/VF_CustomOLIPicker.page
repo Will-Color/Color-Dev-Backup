@@ -1,11 +1,11 @@
 <apex:page id="pickProducts" standardController="Opportunity" extensions="CLS_CustomProductAddition" action="{!priceBookCheck}">
+    <apex:pageMessages id="msgs"/>
     <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
         <apex:sectionHeader title="Add Products for" subtitle="{!Opportunity.Name}"
                             description="Enter your keyword and filter criteria, then click Search to begin your search. 
                                          Click More filters to use more than one filter. Search results include all records that match 
                                          both your keyword and filter entries."/>
         
-        <apex:pageMessages id="msgs"/>
         <apex:form >
             <apex:pageBlock title="Select Products">
                 <apex:pageBlockButtons >
@@ -39,6 +39,7 @@
                             </button>
                             <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Select Products</h2>
                         </header>
+                        
                         <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                             <apex:form >
                                 <table class="slds-table slds-table--bordered slds-table--cell-buffer">
@@ -66,15 +67,15 @@
                                             <tr>
                                                 <td scope="row" data-label="Select">
                                                     <div class="slds-form-element">
-                                                            <div class="slds-form-element__control">
-                                                                <span class="slds-checkbox">
-                                                                    <input type="checkbox" name="options" id="{!prod.pbe.ProductCode}" value="{!prod.isSelected}" />
-                                                                    <label class="slds-checkbox__label" for="{!prod.pbe.ProductCode}">
-                                                                        <span class="slds-checkbox_faux"></span>
-                                                                    </label>
-                                                                </span>
-                                                            </div>
+                                                        <div class="slds-form-element__control">
+                                                            <span class="slds-checkbox">
+                                                                <input type="checkbox" name="options" id="{!prod.pbe.ProductCode}" value="{!prod.isSelected}" />
+                                                                <label class="slds-checkbox__label" for="{!prod.pbe.ProductCode}">
+                                                                    <span class="slds-checkbox_faux"></span>
+                                                                </label>
+                                                            </span>
                                                         </div>
+                                                    </div>
                                                 </td>
                                                 <th scope="row" data-label="Product Name">
                                                     <div class="slds-truncate" title="Product Name">
@@ -84,7 +85,7 @@
                                                 <td data-label="Unit Price">
                                                     <div class="slds-form-element">
                                                         <div class="slds-form-element__control">
-                                                            <apex:inputfield value="{!prod.pbe.UnitPrice}" styleClass="slds-input" />
+                                                            <apex:outputfield value="{!prod.pbe.UnitPrice}" styleClass="slds-input" />
                                                         </div>
                                                     </div>
                                                 </td>
@@ -105,24 +106,12 @@
                                             </tr>
                                         </apex:repeat>
                                     </tbody>
-                                </table>
-                                <apex:pageBlock >
-                                    <apex:pageBlockTable value="{!prods}" var="prod">
-                                        <apex:column >
-                                            <apex:inputCheckbox value="{!prod.isSelected}"/>
-                                        </apex:column>
-                                        <apex:column headerValue="Product Name" value="{!prod.pbe.Product2.Name}"/>
-                                        <apex:column headerValue="Price" value="{!prod.pbe.UnitPrice}"/>
-                                        <apex:column headerValue="Product Code" value="{!prod.pbe.ProductCode}"/>
-                                        <apex:column headerValue="Product Description" value="{!prod.pbe.Product2.Description}"/>
-                                    </apex:pageBlockTable>
-                                </apex:pageBlock>
+                                </table> 
+                                <footer class="slds-modal__footer">
+                                    <apex:commandButton styleClass="slds-button slds-button_neutral" value="Select and Continue" action="{!gotoCustomMultiLine}"/>
+                                </footer>
                             </apex:form>
-                        </div>
-                        <apex:form >
-                            <footer class="slds-modal__footer">
-                                <apex:commandButton styleClass="slds-button slds-button_neutral" value="Select and Continue" action="{!gotoCustomMultiLine}"/>
-                            </footer></apex:form>
+                        </div>                        
                     </div>
                 </section>
                 <div class="slds-backdrop slds-backdrop_open">

@@ -1,3 +1,18 @@
+/**
+* ------------------------------------------------------------------------------------------------------------------------
+* Apex Methods for anticipated Visualforce functionality for Opportunity Product addition.
+*
+* This methods anticipates the functionality for Opportunity Products Picking and addition.
+* The Selected Products from the Opportunity Line Item Product Picker page will be displayed to add the Line Items corresponding to
+* each of the Products. The Selected Products with entered Quanitity and Unit Price will be added as the OLIs to the Opportunity.
+* ------------------------------------------------------------------------------------------------------------------------
+* @title 		  CLS_CustomProductAddition	
+* @author         Suyati Inc
+* @created        25/09/2017
+* @version		  1.0
+* ------------------------------------------------------------------------------------------------------------------------
+**/
+
 public class CLS_CustomProductAddition {
     
     private Opportunity opp;
@@ -82,67 +97,65 @@ public class CLS_CustomProductAddition {
         get {
             if (OLIs == null) {
                 OLIs = New OpportunityLineItem[]{};
-
-                for (productSelection ps : prods) {
-                    if(ps.isSelected) {
-                        OLIs.add(
+                    
+                    for (productSelection ps : prods) {
+                        if(ps.isSelected) {
+                            OLIs.add(
                                 New OpportunityLineItem(
-                                        OpportunityID = opp.id,
-                                        UnitPrice = ps.pbe.UnitPrice,
-                                        PriceBookEntryID = ps.pbe.id
+                                    OpportunityID = opp.id,
+                                    UnitPrice = ps.pbe.UnitPrice,
+                                    PriceBookEntryID = ps.pbe.id
                                 )
-                        );
-                        //Add names to Id map to display on page
-                        prodNames.put(ps.pbe.id, ps.pbe.Product2.Name);
+                            );
+                            //Add names to Id map to display on page
+                            prodNames.put(ps.pbe.id, ps.pbe.Product2.Name);
+                        }
                     }
-                }
-
+                
             }
-
-
+            system.debug('OLIs'+OLIs);
             return OLIs;
-
         }
         set;
     }
     
-     public pageReference saveOLIs() {
+    public pageReference saveOLIs() {
         try {
             update opp;
         } catch (DMLException e) {
             apexPages.addMessage(New ApexPages.Message(ApexPages.Severity.FATAL, 'Error Updating Opportunity: ' + e.getDMLMessage(0)));
             return null;
-
+            
         }
-
+        
         for (OpportunityLineItem oli : OLIs) {
             if (oli.ServiceDate == null)
                 oli.ServiceDate = date.today();
         }
-
+        
         try {
             insert OLIs;
         } catch (DMLException e) {
             return null;
         }
-
+        
         return gotoOpp();
     }
-
+    
     public pageReference gotoOpp() {
         PageReference pr = New PageReference('/' + opp.id);
         return pr;
     }
-
+    
     public Map<ID, String> prodNames {
         get {
-
+            
             if (prodNames == null) {
                 prodNames = New Map<ID, String>();
             }
-
+            
             return prodNames;
-
+            
         }
         private set;
     }
