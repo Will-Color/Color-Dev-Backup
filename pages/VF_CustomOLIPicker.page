@@ -1,5 +1,5 @@
 <apex:page id="pickProducts" standardController="Opportunity" extensions="CLS_CustomProductAddition" action="{!priceBookCheck}">
-    <apex:pageMessages id="msgs"/>
+    
     <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme3' }">
         <apex:sectionHeader title="Add Products for" subtitle="{!Opportunity.Name}"
                             description="Enter your keyword and filter criteria, then click Search to begin your search. 
@@ -7,6 +7,7 @@
                                          both your keyword and filter entries."/>
         
         <apex:form >
+            <apex:pageMessages id="msgs"/>
             <apex:pageBlock title="Select Products">
                 <apex:pageBlockButtons >
                     <apex:commandButton value="Select and Continue" action="{!gotoCustomMultiLine}"/>
@@ -25,6 +26,7 @@
     </apex:outputPanel>
     
     <apex:outputPanel rendered="{! $User.UIThemeDisplayed == 'Theme4d' }">    
+        
         <apex:slds />
         <div class="slds">    
             <div>
@@ -38,8 +40,8 @@
                                 <span class="slds-assistive-text">Close</span>
                             </button>
                             <h2 id="modal-heading-01" class="slds-text-heading_medium slds-hyphenate">Select Products</h2>
-                        </header>
-                        
+                            <apex:pageMessages id="msgs"/>
+                        </header>                      
                         <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
                             <apex:form >
                                 <table class="slds-table slds-table--bordered slds-table--cell-buffer">
@@ -63,43 +65,44 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <apex:repeat value="{!prods}" var="prod">
+                                        <apex:repeat value="{!prods}" var="prod1">
                                             <tr>
                                                 <td scope="row" data-label="Select">
                                                     <div class="slds-form-element">
-                                                        <div class="slds-form-element__control">
+                                                        <apex:inputCheckbox value="{!prod1.isSelected}"/>
+                                                        <!--<div class="slds-form-element__control">
                                                             <span class="slds-checkbox">
-                                                                <input type="checkbox" name="options" id="{!prod.pbe.ProductCode}" value="{!prod.isSelected}" />
-                                                                <label class="slds-checkbox__label" for="{!prod.pbe.ProductCode}">
+                                                                <input type="checkbox" name="options" id="{!prod1.pbe.ProductCode}" value="{!prod1.isSelected}" />
+                                                                <label class="slds-checkbox__label" for="{!prod1.pbe.ProductCode}">
                                                                     <span class="slds-checkbox_faux"></span>
                                                                 </label>
                                                             </span>
-                                                        </div>
+                                                        </div>-->
                                                     </div>
                                                 </td>
                                                 <th scope="row" data-label="Product Name">
                                                     <div class="slds-truncate" title="Product Name">
-                                                        <apex:outputLink value="/{! prod.pbe.Product2.Id}">{! prod.pbe.Product2.name }</apex:outputLink>
+                                                        <apex:outputLink value="/{! prod1.pbe.Product2.Id}">{! prod1.pbe.Product2.name }</apex:outputLink>
                                                     </div>
                                                 </th>
                                                 <td data-label="Unit Price">
                                                     <div class="slds-form-element">
                                                         <div class="slds-form-element__control">
-                                                            <apex:outputfield value="{!prod.pbe.UnitPrice}" styleClass="slds-input" />
+                                                            <apex:outputfield value="{!prod1.pbe.UnitPrice}" styleClass="slds-input" />
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td data-label="Product Code">
                                                     <div class="slds-form-element">
                                                         <div class="slds-form-element__control">
-                                                            <apex:inputfield value="{!prod.pbe.ProductCode}" styleClass="slds-input" />
+                                                            <apex:inputfield value="{!prod1.pbe.ProductCode}" styleClass="slds-input" />
                                                         </div>
                                                     </div>
                                                 </td>
                                                 <td data-label="Product Descriptione">
                                                     <div class="slds-form-element">
                                                         <div class="slds-form-element__control">
-                                                            <apex:inputfield value="{!prod.pbe.Product2.Description}" styleClass="slds-input" />
+                                                            <apex:inputfield value="{!prod1.pbe.Product2.Description}" styleClass="slds-input" />
                                                         </div>
                                                     </div>
                                                 </td>

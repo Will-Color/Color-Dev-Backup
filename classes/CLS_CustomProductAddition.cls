@@ -14,11 +14,9 @@
 **/
 
 public class CLS_CustomProductAddition {
-    
     private Opportunity opp;
     public String opp_currency { get; set; }
     public CLS_CustomProductAddition(ApexPages.StandardController controller){
-        
         opp = [Select ID, PriceBook2.Name, 
                (Select ID, PriceBookEntry.Product2ID, ProductCode 
                 From OpportunityLineItems
@@ -49,10 +47,23 @@ public class CLS_CustomProductAddition {
     }
     
     public PageReference gotoCustomMultiLine() {
+        boolean isFlag = false;
         System.debug(opp.Pricebook2.Name);
-        PageReference pr = Page.VF_CustomOLIEdit;
-        pr.getParameters().put('id', opp.id);
-        pr.setRedirect(false);
+        for (productSelection ps : prods) {
+            if(ps.isSelected) {
+                isFlag = true;
+            }
+        }
+        PageReference pr;
+        if(isFlag == false){
+            apexPages.addMessage(New ApexPages.Message(ApexPages.Severity.ERROR, 'Select atleast one product to continue...'));
+            pr = ApexPages.currentPage();
+        }else{ 
+            pr = Page.VF_CustomOLIEdit;
+            pr.getParameters().put('id', opp.id);
+            pr.setRedirect(false);
+        }
+        
         return pr;
         
     }
@@ -97,7 +108,7 @@ public class CLS_CustomProductAddition {
         get {
             if (OLIs == null) {
                 OLIs = New OpportunityLineItem[]{};
-                    
+                   
                     for (productSelection ps : prods) {
                         if(ps.isSelected) {
                             OLIs.add(
