@@ -29,7 +29,7 @@
         
         <apex:slds />
         <div class="slds">    
-            <div>
+            <!--<div>
                 <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-slide-down-cancel slds-modal_large">
                     <div class="slds-modal__container">
                         <header class="slds-modal__header">
@@ -78,7 +78,7 @@
                                                                 </label>
                                                             </span>
                                                         </div>-->
-                                                    </div>
+                                                    <!--</div>
                                                 </td>
                                                 <th scope="row" data-label="Product Name">
                                                     <div class="slds-truncate" title="Product Name">
@@ -119,6 +119,190 @@
                 </section>
                 <div class="slds-backdrop slds-backdrop_open">
                 </div>
+            </div>-->
+            <div class="demo-only" style="height: 640px;">
+                <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open slds-modal_large slds-list-builder" aria-labelledby="id-of-modalheader-h2" aria-modal="true" aria-describedby="modal-content-id-1">
+                    <div class="slds-modal__container">
+                        <header class="slds-modal__header">
+                            <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close">
+                                <svg class="slds-button__icon slds-button__icon_large" aria-hidden="true">
+                                    <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#close" />
+                                </svg>
+                                <span class="slds-assistive-text">Close</span>
+                            </button>
+                            <h2 id="id-of-modalheader-h2" class="slds-text-heading_medium">Add Products</h2>
+                            <p class="slds-m-top_x-small">Pricebook: Salesforce Products</p>
+                        </header>
+                        <div class="slds-modal__content slds-grid slds-grow" id="modal-content-id-1">
+                            <div class="slds-grid slds-grid_vertical">
+                                <div class="slds-p-vertical_x-small slds-p-horizontal_large slds-shrink-none slds-theme_shade">
+                                    <div class="slds-form-element">
+                                        <div class="slds-form-element__control">
+                                            <div class="slds-combobox_container">
+                                                <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click" aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                                                    <div id="listbox-unique-id" role="listbox">
+                                                        <ul class="slds-listbox slds-listbox_vertical slds-dropdown slds-dropdown_fluid" role="presentation">
+                                                            <li role="presentation" class="slds-listbox__item">
+                                                                <span id="listbox-option-unique-id-01" class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                                                                    <span class="slds-media__figure">
+                                                                        <span class="slds-icon_container slds-icon-standard-account" title="Description of icon when needed">
+                                                                            <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account" />
+                                                                            </svg>
+                                                                            <span class="slds-assistive-text">Description of icon</span>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="slds-media__body">
+                                                                        <span class="slds-listbox__option-text slds-listbox__option-text_entity">Acme</span>
+                                                                        <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">Account • San Francisco</span>
+                                                                    </span>
+                                                                </span>
+                                                            </li>
+                                                            <li role="presentation" class="slds-listbox__item">
+                                                                <span id="listbox-option-unique-id-02" class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta" role="option">
+                                                                    <span class="slds-media__figure">
+                                                                        <span class="slds-icon_container slds-icon-standard-account" title="Description of icon when needed">
+                                                                            <svg class="slds-icon slds-icon_small" aria-hidden="true">
+                                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/standard-sprite/svg/symbols.svg#account" />
+                                                                            </svg>
+                                                                            <span class="slds-assistive-text">Description of icon</span>
+                                                                        </span>
+                                                                    </span>
+                                                                    <span class="slds-media__body">
+                                                                        <span class="slds-listbox__option-text slds-listbox__option-text_entity">Salesforce.com, Inc.</span>
+                                                                        <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">Account • San Francisco</span>
+                                                                    </span>
+                                                                </span>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slds-text-title slds-m-top_x-small" aria-live="polite"></div>
+                                </div>
+                                <div class="slds-scrollable slds-grow">
+                                    <apex:form >                            
+                                        <apex:commandButton styleClass="slds-button slds-button_brand" value="Next" action="{!gotoCustomMultiLine}"/>
+                                    <table role="grid" class="slds-table slds-table_fixed-layout slds-table_bordered slds-table_resizable-cols slds-no-row-hover slds-scrollable_none">
+                                        <thead>
+                                            <tr class="slds-line-height_reset">
+                                                <th scope="col" style="width: 3.75rem;"></th>
+                                                <th aria-label="Name" aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" scope="col">
+                                                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
+                                                        <span class="slds-truncate" title="Name">Name</span>
+                                                        <div class="slds-icon_container">
+                                                            <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-is-sortable__icon" aria-hidden="true">
+                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" />
+                                                            </svg>
+                                                        </div>
+                                                    </a>
+                                                    <div class="slds-resizable">
+                                                        <input type="range" min="20" max="1000" aria-label="Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-5" tabindex="-1" />
+                                                        <span class="slds-resizable__handle">
+                                                            <span class="slds-resizable__divider"></span>
+                                                        </span>
+                                                    </div>
+                                                </th>
+                                                <th aria-label="Product Code" aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" scope="col">
+                                                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
+                                                        <span class="slds-truncate" title="Product Code">Product Code</span>
+                                                        <div class="slds-icon_container">
+                                                            <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-is-sortable__icon" aria-hidden="true">
+                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" />
+                                                            </svg>
+                                                        </div>
+                                                    </a>
+                                                    <div class="slds-resizable">
+                                                        <input type="range" min="20" max="1000" aria-label="Product Code column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-6" tabindex="-1" />
+                                                        <span class="slds-resizable__handle">
+                                                            <span class="slds-resizable__divider"></span>
+                                                        </span>
+                                                    </div>
+                                                </th>
+                                                <th aria-label="List Price" aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" scope="col">
+                                                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
+                                                        <span class="slds-truncate" title="List Price">List Price</span>
+                                                        <div class="slds-icon_container">
+                                                            <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-is-sortable__icon" aria-hidden="true">
+                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" />
+                                                            </svg>
+                                                        </div>
+                                                    </a>
+                                                    <div class="slds-resizable">
+                                                        <input type="range" min="20" max="1000" aria-label="List Price column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-7" tabindex="-1" />
+                                                        <span class="slds-resizable__handle">
+                                                            <span class="slds-resizable__divider"></span>
+                                                        </span>
+                                                    </div>
+                                                </th>
+                                                <th aria-label="Product Family" aria-sort="none" class="slds-is-sortable slds-is-resizable slds-text-title_caps" scope="col">
+                                                    <a class="slds-th__action slds-text-link_reset" href="javascript:void(0);" role="button" tabindex="-1">
+                                                        <span class="slds-truncate" title="Product Family">Product Family</span>
+                                                        <div class="slds-icon_container">
+                                                            <svg class="slds-icon slds-icon_x-small slds-icon-text-default slds-is-sortable__icon" aria-hidden="true">
+                                                                <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown" />
+                                                            </svg>
+                                                        </div>
+                                                    </a>
+                                                    <span class="slds-assistive-text" aria-live="assertive" aria-atomic="true">Sorted none</span>
+                                                    <div class="slds-resizable">
+                                                        <input type="range" min="20" max="1000" aria-label="Product Family column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-8" tabindex="-1" />
+                                                        <span class="slds-resizable__handle">
+                                                            <span class="slds-resizable__divider"></span>
+                                                        </span>
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <apex:repeat value="{!prods}" var="prod1">
+                                                <tr class="slds-hint-parent">
+                                                    
+                                                    <td role="gridcell" tabindex="-1" class="slds-text-align_right" style="width: 3.75rem;">
+                                                        <div class="slds-checkbox_add-button">
+                                                            <label for="add-checkbox-10" class="slds-checkbox_faux">
+                                                                <span class="slds-assistive-text">Select item 2</span>
+                                                            </label>
+                                                        </div>
+                                                        <div class="slds-form-element__row">
+                                                            <div class="slds-form-element">
+                                                                <label class="slds-checkbox">
+                                                                    <apex:inputcheckbox id="isinstance" styleclass="slds-input" value="{!prod1.isSelected}" />
+                                                                    <span class="slds-checkbox--faux"></span>
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                <th scope="row">
+                                                    <div class="slds-truncate" title="Analytics">{! prod1.pbe.Product2.name }</div>
+                                                </th>
+                                                <td role="gridcell">
+                                                    <div class="slds-truncate" title="ANTLY">{!prod1.pbe.ProductCode}</div>
+                                                </td>
+                                                <td role="gridcell">
+                                                    <div class="slds-truncate" title="5000.00">{!prod1.pbe.UnitPrice}</div>
+                                                </td>
+                                                <td role="gridcell">
+                                                    <div class="slds-truncate" title="Analytics Product">Analytics Product</div>
+                                                </td>
+                                            </tr>
+                                            </apex:repeat>
+                                        </tbody>
+                                    </table>
+                                        </apex:form>
+
+                                </div>
+                            </div>
+                        </div>
+                        <footer class="slds-modal__footer">
+                            <button class="slds-button slds-button_neutral">Cancel</button>
+                            <button class="slds-button slds-button_brand">Next</button>
+                        </footer>
+                    </div>
+                </section>
+                <div class="slds-backdrop slds-backdrop_open"></div>
             </div>
         </div>
     </apex:outputPanel>
