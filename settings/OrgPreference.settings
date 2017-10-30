@@ -78,7 +78,7 @@
     </preferences>
     <preferences>
         <settingName>NetworksEnabled</settingName>
-        <settingValue>false</settingValue>
+        <settingValue>true</settingValue>
     </preferences>
     <preferences>
         <settingName>AnalyticsSharingEnable</settingName>
