@@ -1,6 +1,6 @@
 public class TeamWorkAPI_Test {
     
-    public List<TeamworkTime> twTaskTime {get;set;}
+    public list<TWTimeTrack.TWTimeTrackerWrapper> twTaskTime {get;set;}
     
     public TeamWorkAPI_Test(){
         
@@ -17,59 +17,31 @@ public class TeamWorkAPI_Test {
         HTTPResponse res = http.send(req);
         System.debug(res.getBody());
         String jsonResult = res.getBody();
-        List <sObject> distributions = new List <sObject> ();
-        
-        // Deserialize the JSON to a map of key => value
-        Map <String, Object> root = (Map <String, Object>) JSON.deserializeUntyped(jsonResult);
-        
-        // Get the List of objects from VALUE1
-        List <Object> value1 = (List<Object>) root.get('time-entries');
-        
-        // Go through each of the objects
-        for (Object obj : value1)
-        {
-            system.debug('obj'+obj);
-            // Cast the object to a map of key => value
-            Map <String, Object> objectMap = (Map <String, Object>) obj;
+        jsonResult = jsonResult.replace('"time-entries":', '"time_entries":');
+        jsonResult = jsonResult.replace('"project-id":', '"project_id":');
+        jsonResult = jsonResult.replace('"todo-list-name":', '"todo_list_name":');
+        jsonResult = jsonResult.replace('"todo-item-name":', '"todo_item_name":');
+        jsonResult = jsonResult.replace('"todo-list-id":', '"todo_list_id":');
+        jsonResult = jsonResult.replace('"person-last-name":', '"person_last_name":');
+        jsonResult = jsonResult.replace('"person-first-name":', '"person_first_name":');
+        jsonResult = jsonResult.replace('"ticket-id":', '"ticket_id":');
+        jsonResult = jsonResult.replace('"company-id":', '"company_id":');
+        jsonResult = jsonResult.replace('"project-status":', '"project_status":');
+        jsonResult = jsonResult.replace('"person-id":', '"person_id":');
+        jsonResult = jsonResult.replace('"company-name":', '"company_name":');
+        jsonResult = jsonResult.replace('"updated-date":', '"updated_date":');
+        jsonResult = jsonResult.replace('"date":', '"taskdate":');
+        jsonResult = jsonResult.replace('"project-name":', '"project_name":');
+        jsonResult = jsonResult.replace('"task-tags":', '"task_tags":');
+        jsonResult = jsonResult.replace('"todo-item-id":', '"todo_item_id":');
+        jsonResult = jsonResult.replace('"has-start-time":', '"has_start_time":');
+        jsonResult = '['+jsonResult+']';
+        system.debug('jsonResult'+jsonResult);
+        twTaskTime = (list<TWTimeTrack.TWTimeTrackerWrapper>)JSON.deserialize(jsonResult, list<TWTimeTrack.TWTimeTrackerWrapper>.class); 
+        for(TWTimeTrack.TWTimeTrackerWrapper t: twTaskTime){
             
-            for (String key : objectMap.keySet())
-            {
-                // Assuming all the keys from the JSON match the API field names by appending __c
-                // Copy the values from the JSON object into the sObject
-                // Missing fields will be set to NULL
-                //distribution.put(key + '__c', objectMap.get(key));
-                //system.debug(objectMap.get(key));
-                // add the sObject to the list
-                //distributions.add(distribution);
-            }
+            system.debug('twTaskTime'+t);
         }
         
-       /* JSONParser parser = JSON.createParser(res.getBody());
-        
-        System.JSONToken token;
-        string text;
-        while((token = parser.nextToken()) != null) {
-            if ((token = parser.getCurrentToken()) != JSONToken.END_OBJECT) {
-                if (token == JSONToken.FIELD_Name){
-                    text = parser.getText();
-                    text = text.replace('-','');
-                    //system.debug('text'+text);
-                }
-            }
-        }    */    
-        //String jsonResult = String.valueOf(res.getBody()).replace('-','');
-         system.debug('jsonResult'+res.getBody());
-        //String jsonResult = '['+res.getBody().replace('-'',''')+']';
-		//twTaskTime = (List<TeamworkTime>) System.JSON.deserialize(jsonResult, List<TeamworkTime>.class);
-		//system.debug('twTaskTime'+parser);        
-        
     }   
-    
-    public class TeamworkTime
-    {
-        public Id twId {get;set;}
-        public Id projectid {get;set;}
-        public Integer taskhours {get;set;}
-        public String projectname {get;set;}
-    }
 }
