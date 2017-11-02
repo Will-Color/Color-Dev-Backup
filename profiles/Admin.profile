@@ -82,6 +82,12 @@
     </classAccesses><classAccesses>
         <apexClass>SiteRegisterControllerTest</apexClass>
         <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>TWTimeTrack</apexClass>
+        <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>TeamWorkAPI_Test</apexClass>
+        <enabled>true</enabled>
     </classAccesses><pageAccesses>
         <apexPage>VF_CustomOLIEdit</apexPage>
         <enabled>true</enabled>
@@ -159,6 +165,9 @@
         <enabled>true</enabled>
     </pageAccesses><pageAccesses>
         <apexPage>UnderConstruction</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses><pageAccesses>
+        <apexPage>TWTimeListing</apexPage>
         <enabled>true</enabled>
     </pageAccesses><applicationVisibilities>
         <application>Color_Product_Scheduler</application>
