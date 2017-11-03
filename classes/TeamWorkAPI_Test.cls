@@ -1,11 +1,11 @@
 public class TeamWorkAPI_Test {
     
-    public list<TWTimeTrack.TWTimeTrackerWrapper> twTaskTime {get;set;}
+    public list<JsonParser.time_entries> twTaskEntries {get;set;}
     public String jsonResult {get; set;}
     public TeamWorkAPI_Test(){
         
         HttpRequest req = new HttpRequest();
-        req.setEndpoint('https://colorconsultancy.teamwork.com/time_entries.json');
+        req.setEndpoint('https://colorconsultancy.teamwork.com/projects/262794/time_entries.json');
         req.setMethod('GET');
         req.setHeader('Content-Type','application/text'); 
         String username = 'twp_29HZ8Vx16K83EO3LQBR0RCBuFxbM';
@@ -35,13 +35,20 @@ public class TeamWorkAPI_Test {
         jsonResult = jsonResult.replace('"task-tags":', '"task_tags":');
         jsonResult = jsonResult.replace('"todo-item-id":', '"todo_item_id":');
         jsonResult = jsonResult.replace('"has-start-time":', '"has_start_time":');
-        jsonResult = '['+jsonResult+']';
+        //jsonResult = '['+jsonResult+']';
         system.debug('jsonResult'+jsonResult);
-        twTaskTime = (list<TWTimeTrack.TWTimeTrackerWrapper>)JSON.deserialize(jsonResult, list<TWTimeTrack.TWTimeTrackerWrapper>.class); 
-        for(TWTimeTrack.TWTimeTrackerWrapper t: twTaskTime){
-            
-            system.debug('twTaskTime'+t);
+        Set<Integer> projectId = new Set<Integer>();
+        Set<Integer> taskListId = new Set<Integer>();
+        JsonParser mainJSONWrapper = (JsonParser) JSON.deserialize(jsonResult,JsonParser.class);
+        List<JsonParser.time_entries> objectsLst = mainJSONWrapper.time_entries;
+        system.debug('objectsLst'+objectsLst);
+        for(JsonParser.time_entries obj:objectsLst) {
+            System.debug('Name:'+obj.project_id);
+            projectId.add(Integer.valueOf(obj.project_id));
+            taskListId.add(Integer.valueOf(obj.todo_list_id));
+            System.debug('metadata:'+obj.hours);
         }
+        
         
     }   
 }

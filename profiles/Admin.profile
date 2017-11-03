@@ -91,6 +91,9 @@
     </classAccesses><classAccesses>
         <apexClass>JSON2ApexT</apexClass>
         <enabled>true</enabled>
+    </classAccesses><classAccesses>
+        <apexClass>JsonParser</apexClass>
+        <enabled>true</enabled>
     </classAccesses><pageAccesses>
         <apexPage>VF_CustomOLIEdit</apexPage>
         <enabled>true</enabled>
