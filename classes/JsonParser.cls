@@ -6,7 +6,7 @@ public class JsonParser{
 	public class time_entries{
 		public String person_first_name{get;set;}
 		public String description{get;set;}
-		public String minutes{get;set;}
+		public Integer minutes{get;set;}
 		public String ticket_id{get;set;}
 		public String dateUserPerspective{get;set;}
 		public String createdAt{get;set;}
@@ -33,7 +33,7 @@ public class JsonParser{
 		public String isbilled{get;set;}
 		public String has_start_time{get;set;}
 		public String todo_item_name{get;set;}
-		public String hours{get;set;}
+		public Integer hours{get;set;}
 		public String todo_list_name{get;set;}
 		public String isbillable{get;set;}
 		public String project_id{get;set;}

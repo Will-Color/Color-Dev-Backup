@@ -23,18 +23,76 @@
         <actionName>ViewAll</actionName>
         <type>Default</type>
     </actionOverrides><fields>
-        <fullName>Hours__c</fullName>
-        <externalId>false</externalId>
-        <label>Hours</label>
-        <precision>4</precision>
-        <required>false</required>
-        <scale>2</scale>
-        <type>Number</type>
-        <unique>false</unique>
-    </fields><fields>
         <fullName>TW_Task_Name__c</fullName>
         <externalId>false</externalId>
         <label>TW Task Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Hours__c</fullName>
+        <externalId>false</externalId>
+        <label>Hours</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Minute__c</fullName>
+        <externalId>false</externalId>
+        <label>Minute</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Project_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Project Id</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Project_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Project Name</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Task_Id__c</fullName>
+        <caseSensitive>false</caseSensitive>
+        <externalId>true</externalId>
+        <label>Task Id</label>
+        <length>10</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields><fields>
+        <fullName>Task_List_Id__c</fullName>
+        <externalId>true</externalId>
+        <label>Task List Id</label>
+        <length>15</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Task_List__c</fullName>
+        <externalId>false</externalId>
+        <label>Task List</label>
+        <length>100</length>
+        <required>false</required>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields><fields>
+        <fullName>Task_Name__c</fullName>
+        <externalId>false</externalId>
+        <label>Task Name</label>
         <length>100</length>
         <required>false</required>
         <type>Text</type>

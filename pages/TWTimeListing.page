@@ -1,8 +1,32 @@
 <apex:page controller="TeamWorkAPI_Test">
-    {!jsonResult}
-    <apex:repeat value="{!twTaskEntries}" var="t">
-        {!t}
-        _
-    </apex:repeat>
-
+    <apex:form >
+        <apex:repeat value="{!twData}" var="key">
+            <!-- get the value from the map using this key -->
+            <apex:repeat value="{!twData[key]}" var="mapList" >
+                <!-- mapList is the value from your map - a list of IDs, loop through the list -->
+                <apex:repeat value="{!mapList}" var="listElement">
+                    <br/>
+                    project_name : <apex:outputText value="{!listElement.project_name}" />
+                    <br/>
+                    project_id : <apex:outputText value="{!listElement.project_id}" />
+                    <br/>
+                    todo_list_name : <apex:outputText value="{!listElement.todo_list_name}" />
+                    <br/>
+                    todo_list_id : <apex:outputText value="{!listElement.todo_list_id}" />
+                    <br/>
+                    todo_item_name : <apex:outputText value="{!listElement.todo_item_name}" />
+                    <br/>
+                    todo_item_id : <apex:outputText value="{!listElement.todo_item_id}" />
+                    <br/>
+                    hours : <apex:outputText value="{!listElement.hours}" />
+                    <br/>
+                    minutes : <apex:outputText value="{!listElement.minutes}" />
+                    <br/>
+                    _____________________________________________________________________________
+                </apex:repeat>
+                
+            </apex:repeat>
+        </apex:repeat>
+        <apex:commandButton action="{!insertTask}" value="Create" />
+    </apex:form>
 </apex:page>
