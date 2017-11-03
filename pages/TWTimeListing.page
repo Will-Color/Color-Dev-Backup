@@ -1,2 +1,4 @@
 <apex:page controller="TeamWorkAPI_Test">
+    {!jsonResult}
+
 </apex:page>

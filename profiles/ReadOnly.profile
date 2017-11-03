@@ -970,6 +970,22 @@
         <editable>true</editable>
         <field>Jira__c.Jira_ID__c</field>
         <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>Event.Hours__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>Event.TW_Task_Name__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>Task.Hours__c</field>
+        <readable>true</readable>
+    </fieldPermissions><fieldPermissions>
+        <editable>true</editable>
+        <field>Task.TW_Task_Name__c</field>
+        <readable>true</readable>
     </fieldPermissions><layoutAssignments>
         <layout>Account-Account Layout</layout>
     </layoutAssignments><layoutAssignments>

@@ -1,7 +1,7 @@
 public class TeamWorkAPI_Test {
     
     public list<TWTimeTrack.TWTimeTrackerWrapper> twTaskTime {get;set;}
-    
+    public String jsonResult {get; set;}
     public TeamWorkAPI_Test(){
         
         HttpRequest req = new HttpRequest();
@@ -16,7 +16,7 @@ public class TeamWorkAPI_Test {
         Http http = new Http();
         HTTPResponse res = http.send(req);
         System.debug(res.getBody());
-        String jsonResult = res.getBody();
+        jsonResult = res.getBody();
         jsonResult = jsonResult.replace('"time-entries":', '"time_entries":');
         jsonResult = jsonResult.replace('"project-id":', '"project_id":');
         jsonResult = jsonResult.replace('"todo-list-name":', '"todo_list_name":');
