@@ -1,0 +1,7 @@
+<design:component label="Progress bar">
+    <design:attribute name="valuemin" label="Minimum Value" description="Min Test" />
+    <design:attribute name="valuemax" label="Maximum Value" description="Max Test" />
+    <design:attribute name="progress" label="Progress" description="Test" />
+    <design:attribute name="barcolor" label="Bar Colour" description="Change the colour of the progress bar" />
+    <design:attribute name="barbackground" label="Bar Background" description="Change the colour of the progress bar background" />    
+</design:component>

@@ -38,14 +38,18 @@
         <actionName>Tab</actionName>
         <type>Default</type>
     </actionOverrides><actionOverrides>
-        <actionName>View</actionName>
-        <type>Default</type>
-    </actionOverrides><actionOverrides>
         <actionName>ViewCustomerPortalUser</actionName>
         <type>Default</type>
     </actionOverrides><actionOverrides>
         <actionName>WebsiteHighlightAction</actionName>
         <type>Default</type>
+    </actionOverrides><actionOverrides>
+        <actionName>View</actionName>
+        <comment>Action override created by Lightning App Builder during activation.</comment>
+        <content>LDS_Test_Page</content>
+        <formFactor>Large</formFactor>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Flexipage</type>
     </actionOverrides><fields>
         <fullName>AccountNumber</fullName>
         <trackFeedHistory>false</trackFeedHistory>

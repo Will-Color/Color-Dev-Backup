@@ -1,0 +1,28 @@
+<aura:component implements="flexipage:availableForAllPageTypes" access="global">
+    
+    <aura:attribute name="valuemin" type="Integer" default="0"/>
+    <aura:attribute name="valuemax" type="Integer" default="100"/>
+    <aura:attribute name="progress" type="Integer" default="50"/>
+    <aura:attribute name="barcolor" type="string" default=""/>
+    <aura:attribute name="barbackground" type="string" default=""/>
+    
+<div class="slds-progress-bar slds-progress-bar_circular slds-progress-bar_large"  
+     aria-valuemin="{!v.valuemin}" 
+     aria-valuemax="{!v.valuemax}" 
+     aria-valuenow="{!v.progress}" 
+     role="progressbar">
+  <span class="slds-progress-bar__value">
+    <span class="slds-assistive-text">Progress: {!v.progress}%</span>
+  </span>
+</div>
+    
+    
+    <style>
+    .slds-progress-bar__value
+       {width: {!v.progress}%;
+       background-color:{!v.barcolor};}
+     .slds-progress-bar
+        {background-color:{!v.barbackground};}
+    </style> 
+    
+</aura:component>
