@@ -1,7 +1,7 @@
 <aura:component implements="flexipage:availableForAllPageTypes,force:hasRecordId" access="global">
     
     <aura:attribute name="id" type="Id"/>
-    
+   
     
     <!-- DATA VARIABLES -->
     <aura:attribute name="valuemin" type="Integer" default="0"/>
@@ -11,24 +11,32 @@
     <!-- STYLE VARIABLES -->
     <aura:attribute name="barcolor" type="string" default=""/>
     <aura:attribute name="barbackground" type="string" default=""/>
+<lightning:card >
+                       
+	<div class="slds-progress-bar slds-progress-bar_circular slds-progress-bar_large"  
+    	aria-valuemin="{!v.valuemin}" 
+     	aria-valuemax="{!v.valuemax}" 
+     	aria-valuenow="{!v.progress}" 
+     	role="progressbar">
+  			<span class="slds-progress-bar__value">
+   			<span class="slds-assistive-text">Progress: {!v.progress}%</span>
+ 			</span>
+	</div> 
+    <div>{!v.valuemin}</div>
+    <div>{!v.valuemax}</div>
+    <div>{!v.progress}</div>
     
-<div class="slds-progress-bar slds-progress-bar_circular slds-progress-bar_large"  
-     aria-valuemin="{!v.valuemin}" 
-     aria-valuemax="{!v.valuemax}" 
-     aria-valuenow="{!v.progress}" 
-     role="progressbar">
-  <span class="slds-progress-bar__value">
-    <span class="slds-assistive-text">Progress: {!v.progress}%</span>
-  </span>
-</div>
-    
-    
+</lightning:card> 
     <style>
     .slds-progress-bar__value
        {width: {!v.progress}%;
        background-color:{!v.barcolor};}
      .slds-progress-bar
         {background-color:{!v.barbackground};}
+      .slds-card__body
+        {background-color:black;}
+      .slds-card__footer
+        {background-color:blue;}
     </style> 
     
 </aura:component>

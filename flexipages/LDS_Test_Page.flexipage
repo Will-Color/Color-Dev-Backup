@@ -14,7 +14,7 @@
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>progress</name>
-                <value>5000</value>
+                <value>50</value>
             </componentInstanceProperties>
             <componentInstanceProperties>
                 <name>valuemax</name>
@@ -30,6 +30,21 @@
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
+        <componentInstances>
+            <componentInstanceProperties>
+                <name>parentFieldApiName</name>
+                <value>Account.Id</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListApiName</name>
+                <value>Opportunities</value>
+            </componentInstanceProperties>
+            <componentInstanceProperties>
+                <name>relatedListComponentOverride</name>
+                <value>NONE</value>
+            </componentInstanceProperties>
+            <componentName>force:relatedListSingleContainer</componentName>
+        </componentInstances>
         <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
