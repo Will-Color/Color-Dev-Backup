@@ -413,15 +413,6 @@
         <searchResultsAdditionalFields>LEAD.STATUS</searchResultsAdditionalFields>
         <searchResultsAdditionalFields>CORE.USERS.ALIAS</searchResultsAdditionalFields>
     </searchLayouts><sharingModel>ReadWriteTransfer</sharingModel><listViews>
-        <fullName>AllOpenLeads</fullName>
-        <filterScope>Everything</filterScope>
-        <filters>
-            <field>LEAD.STATUS</field>
-            <operation>notContain</operation>
-            <value>closed</value>
-        </filters>
-        <label>All Open Leads</label>
-    </listViews><listViews>
         <fullName>InternationalLeads</fullName>
         <filterScope>Queue</filterScope>
         <label>International Leads</label>
@@ -474,4 +465,26 @@
         <columns>LEAD.LEAD_SOURCE</columns>
         <filterScope>Everything</filterScope>
         <label>View - Custom 2</label>
+    </listViews><listViews>
+        <fullName>AllOpenLeads</fullName>
+        <columns>FULL_NAME</columns>
+        <columns>LEAD.COMPANY</columns>
+        <columns>LEAD.STATE</columns>
+        <columns>LEAD.EMAIL</columns>
+        <columns>LEAD.STATUS</columns>
+        <columns>LEAD.CREATED_DATE</columns>
+        <columns>CORE.USERS.ALIAS</columns>
+        <columns>LEAD.UNREAD</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>notContain</operation>
+            <value>closed</value>
+        </filters>
+        <filters>
+            <field>LEAD.STATUS</field>
+            <operation>equals</operation>
+            <value>Working - Contacted,Closed - Converted</value>
+        </filters>
+        <label>All Open Leads</label>
     </listViews></CustomObject>
